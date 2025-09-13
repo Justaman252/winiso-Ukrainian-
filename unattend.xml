@@ -1,0 +1,67 @@
+<AutoUnattend xmlns="urn:schemas-microsoft-com:unattend">
+  <Settings pass="windowsPE">
+    <DiskConfiguration>
+      <Disk wcm:action="add">
+        <DiskID>0</DiskID>
+        <WillWipeDisk>true</WillWipeDisk>
+        <CreatePartitions>
+          <CreatePartition>
+            <Order>1</Order>
+            <Type>Primary</Type>
+            <Size>100</Size>
+          </CreatePartition>
+          <CreatePartition>
+            <Order>2</Order>
+            <Type>Primary</Type>
+            <Extend>true</Extend>
+          </CreatePartition>
+        </CreatePartitions>
+        <ModifyPartitions>
+          <ModifyPartition>
+            <Order>1</Order>
+            <Format>NTFS</Format>
+            <Label>System</Label>
+          </ModifyPartition>
+          <ModifyPartition>
+            <Order>2</Order>
+            <Format>NTFS</Format>
+            <Label>Windows</Label>
+            <Letter>C</Letter>
+          </ModifyPartition>
+        </ModifyPartitions>
+      </Disk>
+      <ImageInstall>
+        <OSImage>
+          <InstallFrom>
+            <MetaData wcm:action="add">
+              <Key>/IMAGE/INDEX</Key>
+              <Value>1</Value>
+            </MetaData>
+          </InstallFrom>
+        </OSImage>
+      </ImageInstall>
+    </Settings>
+    <Settings pass="oobeSystem">
+      <UserAccounts>
+        <AdministratorPassword>
+          <Value>ПарольАдміністратора</Value>
+          <PlainText>true</PlainText>
+        </AdministratorPassword>
+        <LocalAccounts>
+          <LocalAccount wcm:action="add">
+            <Name>Користувач</Name>
+            <Group>Administrators</Group>
+            <Password>
+              <Value>ПарольКористувача</Value>
+              <PlainText>true</PlainText>
+            </Password>
+          </LocalAccount>
+        </LocalAccounts>
+      </UserAccounts>
+      <OOBE>
+        <HideEULAPage>true</HideEULAPage>
+        <SkipMachineOOBE>true</SkipMachineOOBE>
+        <SkipUserOOBE>true</SkipUserOOBE>
+      </OOBE>
+    </Settings>
+</AutoUnattend>
