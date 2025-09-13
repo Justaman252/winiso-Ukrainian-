@@ -1,2 +1,12 @@
-# winiso-Ukrainian-
-read markdown.md before start!
+
+---
+
+## Використання
+
+1. Підключи USB-флешку або інший диск для інсталяції.
+2. Переконайся, що `unattend.xml` знаходиться у тій же папці, що і `winiso.py`.
+3. Запусти скрипт з параметрами:
+4. ПОТРІБЕН Python
+
+```cmd
+python winiso.py --install C:\windows.iso --load D:\
